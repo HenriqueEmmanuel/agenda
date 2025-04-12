@@ -26,3 +26,7 @@ def buscar_eventos_do_dia(data):
 
 def fechar_conexao():
     conn.close()
+
+def buscar_todos_eventos_do_dia(data):
+    cursor.execute("SELECT nome, hora FROM eventos WHERE data = ?", (data,))
+    return cursor.fetchall()

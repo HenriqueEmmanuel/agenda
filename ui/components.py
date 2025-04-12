@@ -9,7 +9,7 @@ def criar_interface(manager):
 
     elementos["data_input"] = pygame_gui.elements.UITextEntryLine(
         relative_rect=pygame.Rect((50, 100), (200, 30)), manager=manager)
-    elementos["data_input"].set_text("AAAA-MM-DD")
+    elementos["data_input"].set_text("Ano-Mes-Dia")
 
     elementos["hora_input"] = pygame_gui.elements.UITextEntryLine(
         relative_rect=pygame.Rect((50, 150), (200, 30)), manager=manager)

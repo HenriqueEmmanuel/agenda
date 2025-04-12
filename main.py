@@ -2,7 +2,8 @@ import pygame
 import pygame_gui
 from database import db_manager
 from ui.components import criar_interface
-from utils.helpers import data_atual, formatar_eventos
+from utils.helpers import data_atual, formatar_eventos, eventos_com_lembrete
+from database.db_manager import buscar_todos_eventos_do_dia
 
 pygame.init()
 pygame.display.set_caption("Agenda")
@@ -42,6 +43,14 @@ while is_running:
     manager.update(time_delta)
     window_surface.fill((30, 30, 30))
     manager.draw_ui(window_surface)
+
+    eventos = buscar_todos_eventos_do_dia(data_atual())
+    lembretes = eventos_com_lembrete(eventos)
+
+    if lembretes:
+        texto = "<br>".join(lembretes)
+        elementos["eventos_list"].set_text(texto)
+
     pygame.display.update()
 
 db_manager.fechar_conexao()
