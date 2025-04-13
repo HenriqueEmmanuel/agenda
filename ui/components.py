@@ -20,6 +20,12 @@ def criar_interface(manager):
 
     elementos["ver_btn"] = pygame_gui.elements.UIButton(
         relative_rect=pygame.Rect((400, 150), (100, 30)), text="Ver Hoje", manager=manager)
+    
+    elementos["ver_todos_btn"] = pygame_gui.elements.UIButton(
+        relative_rect=pygame.Rect((400, 100), (100, 30)), text="Ver Todos", manager=manager)
+
+    elementos["editar_btn"] = pygame_gui.elements.UIButton(
+        relative_rect=pygame.Rect((270, 100), (120, 30)), text="Editar Evento", manager=manager)
 
     elementos["eventos_list"] = pygame_gui.elements.UITextBox(
         html_text="", relative_rect=pygame.Rect((50, 200), (500, 150)), manager=manager)

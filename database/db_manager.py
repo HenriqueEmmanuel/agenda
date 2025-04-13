@@ -30,3 +30,17 @@ def fechar_conexao():
 def buscar_todos_eventos_do_dia(data):
     cursor.execute("SELECT nome, hora FROM eventos WHERE data = ?", (data,))
     return cursor.fetchall()
+
+def editar_evento(nome_antigo, data, novo_nome, nova_data, nova_hora):
+    cursor.execute("""
+        UPDATE eventos
+        SET nome = ?, data = ?, hora = ?
+        WHERE nome = ? AND data = ?
+    """, (novo_nome, nova_data, nova_hora, nome_antigo, data))
+    conn.commit()
+
+def ver_todos():
+    cursor.execute("SELECT * FROM eventos")
+    resultados = cursor.fetchall()
+    return resultados
+

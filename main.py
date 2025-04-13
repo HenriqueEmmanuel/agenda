@@ -37,6 +37,17 @@ while is_running:
                 eventos = db_manager.buscar_eventos_do_dia(data_atual())
                 texto = formatar_eventos(eventos)
                 elementos["eventos_list"].set_text(texto)
+                
+            elif event.ui_element == elementos["editar_btn"]:
+                nome_antigo = elementos["nome_input"].get_text()
+                data = elementos["data_input"].get_text()
+                nova_data = data  
+                novo_nome = nome_antigo + " (editado)" 
+                nova_hora = elementos["hora_input"].get_text()
+            elif event.ui_element == elementos["ver_todos_btn"]:
+                eventos = db_manager.ver_todos()
+                texto = formatar_eventos(eventos)
+                elementos["eventos_list"].set_text(texto)
 
         manager.process_events(event)
 
